@@ -24,6 +24,32 @@ arguments:
 
 
 inputs:
-
+  input_seg_file: File
+  input_control: File
+  input_sample: File
 outputs:
+  beta_table:
+    type: File
+    outputBinding:
+      glob: '*beta_table.txt'
+  stats_file:
+    type: File
+    outputBinding:
+      glob: '*stats_file.txt'
+  ploidy_admixture:
+    type: File
+    outputBinding:
+      glob: '*ploidy_admixture.txt'
+  ploidy_admixture_plot:
+    type: File
+    outputBinding:
+      glob: '*ploidy_admixture_plot.pdf'
+  allele_spec_scna:
+    type: File
+    outputBinding:
+      glob: 'allele_spec_scna.pdf'
+  scna_clonality:
+    type: File
+    outputBinding:
+      glob: 'scna_clonality.pdf'
 

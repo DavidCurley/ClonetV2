@@ -18,6 +18,12 @@ inputs:
 
 
 outputs:
+  beta_table: {type: File, outputSource: clonetv2/beta_table}
+  stats_file: {type: File, outputSource: clonetv2/stats_file}
+  ploidy_admixture: {type: File, outputSource: clonetv2/ploidy_admixture}
+  ploidy_admixture_plot: {type: File, outputSource: clonetv2/ploidy_admixture_plot}
+  allele_spec_scna: {type: File, outputSource: clonetv2/allele_spec_scna}
+  scna_clonality: {type: File, outputSource: clonetv2/scna_clonality}
 
 steps:
   samtools_sample_cram2bam:
@@ -54,6 +60,7 @@ steps:
       input_seg_file: seg_file
       input_control: ASEQ_normal_pileup/pileup_file
       input_sample: ASEQ_sample_pileup/pileup_file
+    out: [beta_table, stats_file, ploidy_admixture, ploidy_admixture_plot, allele_spec_scna, scna_clonality]
 hints:
 - class: 'sbg:maxNumberOfParallelInstances'
   value: 2
