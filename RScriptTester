@@ -8,6 +8,7 @@ pileup_normal <- read.table(system.file("sample_normal_pileup.tsv", package = "C
 
 sink('beta_table.txt')
 bt <- compute_beta_table(seg_tb,pileup_tumor,pileup_normal)
+bt
 sink()
 
 sink('stats_file.txt')
@@ -16,8 +17,9 @@ sink()
 
 sink('ploidy_admixture.txt')
 pl <- compute_ploidy(bt)
-
+pl
 adm <- compute_dna_admixture(bt,pl)
+adm
 sink()
 
 pdf('ploidy_admixture_plot.pdf')
@@ -26,11 +28,11 @@ print(check_plot)
 dev.off()
 
 pdf('allele_specific_scna.pdf')
-as_tb <‐ compute_allele_specific_scna_table(bt, pl, adm)
+as_tb <- compute_allele_specific_scna_table(bt, pl, adm)
 print(as_tb)
 dev.off()
 
 pdf('scna_clonality.pdf')
-clonality_tb <‐ compute_scna_clonality_table(bt, pl, adm)
+clonality_tb <- compute_scna_clonality_table(bt, pl, adm)
 print(clonality_tb)
 dev.off()
