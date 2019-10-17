@@ -57,7 +57,7 @@ steps:
   clonetv2:
     run: ../tools/clonetv2.cwl
     in:
-      input_seg_file: seg_file
+      input_seg_file: input_seg_file
       input_control: ASEQ_normal_pileup/pileup_file
       input_sample: ASEQ_sample_pileup/pileup_file
     out: [beta_table, stats_file, ploidy_admixture, ploidy_admixture_plot, allele_spec_scna, scna_clonality]
