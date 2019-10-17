@@ -4,7 +4,7 @@ id: aseq
 requirements:
   - class: ShellCommandRequirement
   - class: DockerRequirement
-    dockerPull: 'curleyd/clonetv2:2.1'
+    dockerPull: 'davidcurley/clonetv2:2.1'
   - class: InlineJavascriptRequirement
   - class: ResourceRequirement
     ramMin: 32000

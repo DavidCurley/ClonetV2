@@ -5,7 +5,7 @@ id: clonetv2
 requirements:
 - class: ShellCommandRequirement
 - class: DockerRequirement
-  dockerPull: 'curleyd/clonetv2:2.1'
+  dockerPull: 'davidcurley/clonetv2:2.1'
 - class: InlineJavascriptRequirement 
 - class: ResourceRequirement
   ramMin: 32000
@@ -18,9 +18,11 @@ arguments:
     valueFrom: >-
       mkdir $(inputs.ouput_basename)_results
 
-      Rscript #Somewhere here I need to input my script that runs the inputs
-      --Tumor
-
+      Rscript -e ""
+      
+      input_seg_file: seg_file
+      input_control: ASEQ_normal_pileup/pileup_file
+      input_sample: ASEQ_sample_pileup/pileup_file
 
 
 inputs:
