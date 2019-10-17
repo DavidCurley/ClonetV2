@@ -1,8 +1,8 @@
-install.packages('CLONETv2')
+"install.packages('CLONETv2')"
 
 library(CLONETv2)
 
-seg_tb <- read.table('*.seg', header = TRUE, as.is = TRUE )
+seg_tb <- read.table('*$(inputs.inps....).seg', header = TRUE, as.is = TRUE )
 
 pileup_tumor <- read.table('*.tsv', header = TRUE, as.is = TRUE)
 
