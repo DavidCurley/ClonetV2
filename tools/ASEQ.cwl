@@ -7,8 +7,8 @@ requirements:
     dockerPull: 'davidcurley/clonetv2:2.1'
   - class: InlineJavascriptRequirement
   - class: ResourceRequirement
-    ramMin: 32000
-    coresMin: 8
+    ramMin: 8000
+    coresMin: 4
 
 baseCommand: [./binaries/linux64/ASEQ]
 arguments: 
