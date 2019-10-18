@@ -61,6 +61,10 @@ steps:
       input_control: ASEQ_normal_pileup/pileup_file
       input_sample: ASEQ_sample_pileup/pileup_file
     out: [beta_table, stats_file, ploidy_admixture, ploidy_admixture_plot, allele_spec_scna, scna_clonality]
+
+$namespaces:
+  sbg: https://sevenbridges.com
+
 hints:
-- class: 'sbg:maxNumberOfParallelInstances'
-  value: 2
+  - class: sbg:maxNumberOfParallelInstances
+    value: 2

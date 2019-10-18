@@ -8,7 +8,7 @@ requirements:
   - class: InlineJavascriptRequirement
   - class: ResourceRequirement
     ramMin: 32000
-    coresMin:8
+    coresMin: 8
 
 baseCommand: [./binaries/linux64/ASEQ]
 arguments: 
