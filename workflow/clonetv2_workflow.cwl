@@ -12,7 +12,6 @@ inputs:
   input_sample: {type: File, doc: "Sample bam for pileup"}
   input_control: {type: File, doc: "Normal bam for pileup"}
   input_paired_vcf: {type: File, doc: "Paired VCF for pileup"}
-  output_basename: string
   reference: {type: File, doc: "input reference fasta"}
   threads: {type: ['null', int], default: 16}
 
