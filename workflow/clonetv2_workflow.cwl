@@ -13,7 +13,6 @@ inputs:
   input_control: {type: File, doc: "Normal bam for pileup"}
   input_paired_vcf: {type: File, doc: "Paired VCF for pileup"}
   reference: {type: File, doc: "input reference fasta"}
-  threads: {type: ['null', int], default: 16}
 
 
 outputs:
