@@ -10,7 +10,7 @@ requirements:
     ramMin: 8000
     coresMin: 4
 
-baseCommand: [./binaries/linux64/ASEQ]
+baseCommand: [/bin/bash, /clonetv2/binaries/linux64/ASEQ]
 arguments: 
   - position: 1
     shellQuote: false
@@ -21,7 +21,7 @@ arguments:
       mbq=20 
       mrq=20 
       mdc=1 
-      threads=1
+      threads=8
       out=. 
 
 inputs: 
