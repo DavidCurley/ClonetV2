@@ -7,15 +7,14 @@ requirements:
     dockerPull: 'kfdrc/samtools:1.9'
   - class: InlineJavascriptRequirement
   - class: ResourceRequirement
-    ramMin: 12000
-    coresMin: $(inputs.threads)
+    ramMin: 32000
+    coresMin: 16
   
 baseCommand: [samtools, view]
 arguments:
   - position: 1
     shellQuote: false
     valueFrom: >-
-      -@ $(inputs.threads)
       -bh $(inputs.input_reads.path)
       -T $(inputs.reference.path)
       > $(inputs.input_reads.nameroot).bam
