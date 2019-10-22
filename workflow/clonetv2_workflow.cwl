@@ -59,7 +59,7 @@ steps:
     run: ../tools/ASEQ.cwl
     in:
       input_reads: samtools_normal_cram2bam/bam_file
-      input_paired_vcf: bcftools_filter_vcf/filtered_vcf
+      filtered_paired_vcf: bcftools_filter_vcf/filtered_vcf
     out: [pileup_file]
 
   clonetv2:

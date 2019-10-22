@@ -25,7 +25,7 @@ arguments:
       out=. 
 
 inputs: 
-  input_paired_vcf: File
+  filtered_paired_vcf: File
   input_reads: File
   threads:
     type: ['null', int]
