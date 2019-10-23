@@ -15,11 +15,11 @@ arguments:
   - position: 1
     shellQuote: false
     valueFrom: >-
-      $(inputs.filtered_paired_vcf.path) > $(inputs.vcf.nameroot) ;
+      $(inputs.filtered_paired_vcf.path) > $(inputs.filtered_paired_vcf.nameroot) ;
 
       /clonetv2/binaries/linux64/ASEQ 
       mode=PILEUP
-      vcf=$(inputs.vcf.nameroot)
+      vcf=$(inputs.filtered_paired_vcf.nameroot)
       bam=$(inputs.input_reads.path)
       mbq=20 
       mrq=20 
