@@ -10,13 +10,16 @@ requirements:
     ramMin: 8000
     coresMin: 4
 
-baseCommand: [/clonetv2/binaries/linux64/ASEQ]
+baseCommand: [gunzip -c]
 arguments: 
   - position: 1
     shellQuote: false
     valueFrom: >-
+      $(inputs.filtered_paired_vcf.path) > $(inputs.vcf.nameroot) ;
+
+      /clonetv2/binaries/linux64/ASEQ 
       mode=PILEUP
-      vcf=$(inputs.input_paired_vcf.path)
+      vcf=$(inputs.vcf.nameroot)
       bam=$(inputs.input_reads.path)
       mbq=20 
       mrq=20 
