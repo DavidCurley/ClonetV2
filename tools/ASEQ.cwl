@@ -7,8 +7,8 @@ requirements:
     dockerPull: 'davidcurley/clonetv2:2.1'
   - class: InlineJavascriptRequirement
   - class: ResourceRequirement
-    ramMin: 8000
-    coresMin: 4
+    ramMin: 12000
+    coresMin: 8
 
 baseCommand: [gunzip -c]
 arguments: 
@@ -24,7 +24,7 @@ arguments:
       mbq=20 
       mrq=20 
       mdc=1 
-      threads=8
+      threads=1
       out=. 
 
 inputs: 
