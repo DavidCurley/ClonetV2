@@ -23,7 +23,6 @@ arguments:
 inputs:
   input_vcf: File
   include_expression: ['null', string]
-  exclude_expression: ['null', string]
   output_basename: string
 outputs:
   filtered_vcf:
