@@ -39,8 +39,8 @@ steps:
       reference: reference
     out: [bam_file]
 
-  bcftools_filter_vcf:
-    run: ../tools/bcftools_filter.cwl
+  bcftools_view_snps:
+    run: ../tools/bcftools_view_snps.cwl
     in:
       input_vcf: input_paired_vcf
       include_expression: include_expression
@@ -52,14 +52,14 @@ steps:
     run: ../tools/ASEQ.cwl
     in:
       input_reads: samtools_sample_cram2bam/bam_file
-      filtered_paired_vcf: bcftools_filter_vcf/filtered_vcf
+      filtered_paired_vcf: bcftools_view_snps/filtered_vcf
     out: [pileup_file]
 
   ASEQ_normal_pileup:
     run: ../tools/ASEQ.cwl
     in:
       input_reads: samtools_normal_cram2bam/bam_file
-      filtered_paired_vcf: bcftools_filter_vcf/filtered_vcf
+      filtered_paired_vcf: bcftools_view_snps/filtered_vcf
     out: [pileup_file]
 
   clonetv2:
