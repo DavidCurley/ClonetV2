@@ -8,20 +8,21 @@ requirements:
   - class: InlineJavascriptRequirement
   - class: ResourceRequirement
     ramMin: 32000
-    coresMin: 16
+    coresMin: $(inputs.input_threads)
   
 baseCommand: [samtools, view]
 arguments:
   - position: 1
     shellQuote: false
     valueFrom: >-
+      -@ $(inputs.input_threads)
       -bh $(inputs.input_reads.path)
       -T $(inputs.reference.path)
       > $(inputs.input_reads.nameroot).bam
       && samtools index $(inputs.input_reads.nameroot).bam $(inputs.input_reads.nameroot).bai
 inputs:
   input_reads: File
-  threads:
+  input_threads:
     type: ['null', int]
     default: 16
   reference: File

@@ -12,6 +12,7 @@ inputs:
   input_sample: {type: File, doc: "Sample bam for pileup"}
   input_control: {type: File, doc: "Normal bam for pileup"}
   input_paired_vcf: {type: File, doc: "Paired VCF for pileup"}
+  threads: int
   reference: {type: File, doc: "input reference fasta"}
   output_basename: {type: string}
   include_expression: {type: ['null', string], doc: "In case vcf file needs to be filtered on pass, etc"}
@@ -29,6 +30,7 @@ steps:
     run: ../tools/samtools_cram2bam.cwl
     in:
       input_reads: input_sample
+      input_threads: threads
       reference: reference
     out: [bam_file]
   
@@ -36,6 +38,7 @@ steps:
     run: ../tools/samtools_cram2bam.cwl
     in:
       input_reads: input_control
+      input_threads: threads
       reference: reference
     out: [bam_file]
 
