@@ -17,8 +17,12 @@ arguments:
     shellQuote: false
     valueFrom: >-
       $(inputs.input_vcf.path) 
-      - i $(inputs.include_expression)
-      - v snps
+      -i '$(inputs.include_expression)'
+      -v snps
+      -O z
+      -o $(inputs.output_basename).vcf.gz
+      
+      tabix $(inputs.output_basename).vcf.gz
 
 inputs:
   input_vcf: File
