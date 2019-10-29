@@ -11,7 +11,7 @@ requirements:
     coresMin: 1
   - class: InlineJavascriptRequirement
 
-baseCommand: [bcftools view]
+baseCommand: [bcftools, view]
 arguments: 
   - position: 1
     shellQuote: false
@@ -21,7 +21,7 @@ arguments:
       -v snps
       -O z
       -o $(inputs.output_basename).vcf.gz
-      
+
       tabix $(inputs.output_basename).vcf.gz
 
 inputs:
