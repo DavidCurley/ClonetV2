@@ -26,7 +26,7 @@ arguments:
       bt <- compute_beta_table(seg_tb,pileup_tumor,pileup_normal) ;
       sink() ;
 
-      Rscripsink('stats_file.txt') ;
+      sink('stats_file.txt') ;
       statbt <- compute_beta_table(seg_tb,pileup_tumor,pileup_normal, plot_stats=T) ;
       sink() ;
 
