@@ -18,9 +18,9 @@ arguments:
     valueFrom: >-
       Rscript -e "library(CLONETv2)
 
-      seg_tb <- read.table('$(input_seg_file.path)', header = TRUE, as.is = TRUE) ;
-      pileup_tumor <- read.table('$(input_sample.path)', header = TRUE, as.is = TRUE) ;
-      pileup_normal <- read.table('$(input_control.path)', header = TRUE, as.is = TRUE) ;
+      seg_tb <- read.table('$(inputs.input_seg_file.path)', header = TRUE, as.is = TRUE) ;
+      pileup_tumor <- read.table('$(inputs.input_sample.path)', header = TRUE, as.is = TRUE) ;
+      pileup_normal <- read.table('$(inputs.input_control.path)', header = TRUE, as.is = TRUE) ;
 
       sink('beta_table.txt') ;
       bt <- compute_beta_table(seg_tb,pileup_tumor,pileup_normal) ;
