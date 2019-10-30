@@ -24,16 +24,18 @@ arguments:
 
       sink('beta_table.txt') ;
       bt <- compute_beta_table(seg_tb,pileup_tumor,pileup_normal) ;
+      bt ;
       sink() ;
 
       sink('stats_file.txt') ;
-      statbt <- compute_beta_table(seg_tb,pileup_tumor,pileup_normal, plot_stats=T) ;
+      statbt <- compute_beta_table(seg_tb,pileup_tumor,pileup_normal,plot_stats=T) ;
+      statbt ;
       sink() ;
 
       sink('ploidy_admixture.txt') ;
       pl <- compute_ploidy(bt) ;
-
       adm <- compute_dna_admixture(bt,pl) ;
+      adm ;
       sink() ;
 
       pdf('ploidy_admixture_plot.pdf') ;
@@ -41,15 +43,15 @@ arguments:
       print(check_plot) ;
       dev.off() ;
 
-      pdf('allele_specific_scna.pdf') ;
-      as_tb <‐ compute_allele_specific_scna_table(bt, pl, adm) ;
-      print(as_tb) ;
-      dev.off() ;
+      sink('allele_specific_scna.txt') ;
+      as_tb <- compute_allele_specific_scna_table(bt,pl,adm) ;
+      as_tb ;
+      sink() ;
 
-      pdf('scna_clonality.pdf') ;
-      clonality_tb <‐ compute_scna_clonality_table(bt, pl, adm) ;
-      print(clonality_tb) ;
-      dev.off()" 
+      sink('scna_clonality.txt') ;
+      clonality_tb <- compute_scna_clonality_table(bt,pl,adm) ;
+      clonality_tb ;
+      sink() " 
 
 inputs:
   input_seg_file: File
@@ -76,9 +78,9 @@ outputs:
   allele_spec_scna:
     type: File
     outputBinding:
-      glob: 'allele_spec_scna.pdf'
+      glob: 'allele_specific_scna.txt'
   scna_clonality:
     type: File
     outputBinding:
-      glob: 'scna_clonality.pdf'
+      glob: 'scna_clonality.txt'
 
