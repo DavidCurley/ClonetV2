@@ -34,6 +34,7 @@ arguments:
 
       sink('ploidy_admixture.txt') ;
       pl <- compute_ploidy(bt) ;
+      pl ;
       adm <- compute_dna_admixture(bt,pl) ;
       adm ;
       sink() ;
