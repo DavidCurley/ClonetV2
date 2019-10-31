@@ -71,6 +71,7 @@ steps:
       input_seg_file: input_seg_file
       input_control: ASEQ_normal_pileup/pileup_file
       input_sample: ASEQ_sample_pileup/pileup_file
+      output_basename: output_basename
     out: [beta_table, stats_file, ploidy_admixture, ploidy_admixture_plot, allele_specific_scna, scna_clonality]
 
 $namespaces:

@@ -24,7 +24,7 @@ arguments:
       mbq=20 
       mrq=20 
       mdc=1 
-      threads=1
+      threads=8
       out=. 
 
 inputs: 

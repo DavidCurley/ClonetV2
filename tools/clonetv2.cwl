@@ -22,34 +22,34 @@ arguments:
       pileup_tumor <- read.table('$(inputs.input_sample.path)', header = TRUE, as.is = TRUE) ;
       pileup_normal <- read.table('$(inputs.input_control.path)', header = TRUE, as.is = TRUE) ;
 
-      sink('beta_table.txt') ;
+      sink('$(inputs.output_basename).beta_table.txt') ;
       bt <- compute_beta_table(seg_tb,pileup_tumor,pileup_normal) ;
       bt ;
       sink() ;
 
-      sink('stats_file.txt') ;
+      sink('$(inputs.output_basename).stats_file.txt') ;
       statbt <- compute_beta_table(seg_tb,pileup_tumor,pileup_normal,plot_stats=T) ;
       statbt ;
       sink() ;
 
-      sink('ploidy_admixture.txt') ;
+      sink('$(inputs.output_basename).ploidy_admixture.txt') ;
       pl <- compute_ploidy(bt) ;
       pl ;
       adm <- compute_dna_admixture(bt,pl) ;
       adm ;
       sink() ;
 
-      pdf('ploidy_admixture_plot.pdf') ;
+      pdf('$(inputs.output_basename).ploidy_admixture_plot.pdf') ;
       check_plot <- check_ploidy_and_admixture(bt,pl,adm) ;
       print(check_plot) ;
       dev.off() ;
 
-      sink('allele_specific_scna.txt') ;
+      sink('$(inputs.output_basename).allele_specific_scna.txt') ;
       as_tb <- compute_allele_specific_scna_table(bt,pl,adm) ;
       as_tb ;
       sink() ;
 
-      sink('scna_clonality.txt') ;
+      sink('$(inputs.output_basename).scna_clonality.txt') ;
       clonality_tb <- compute_scna_clonality_table(bt,pl,adm) ;
       clonality_tb ;
       sink() " 
@@ -58,6 +58,7 @@ inputs:
   input_seg_file: File
   input_control: File
   input_sample: File
+  output_basename: string
 
 outputs:
   beta_table:
@@ -79,9 +80,9 @@ outputs:
   allele_spec_scna:
     type: File
     outputBinding:
-      glob: 'allele_specific_scna.txt'
+      glob: '*allele_specific_scna.txt'
   scna_clonality:
     type: File
     outputBinding:
-      glob: 'scna_clonality.txt'
+      glob: '*scna_clonality.txt'
 
